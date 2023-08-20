@@ -1,0 +1,131 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    AND
+    ASSIGN
+    BOOL
+    BOOLEAN
+    CHAR
+    COLON
+    COMMENT
+    DOT
+    ELSE
+    EQ
+    EXPONENT
+    FLOAT
+    FOR
+    FUNCTION
+    GT
+    GTE
+    IF
+    INT
+    LBRACE
+    LBRACKET
+    LT
+    LTE
+    MAIN
+    MOD
+    NEQ
+    NEWLINE
+    NOT
+    OR
+    RBRACE
+    RBRACKET
+    RETURN
+    STRING_LITERAL
+    WHILE
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> functions INT_MAIN function_body
+Rule 2     program -> INT_MAIN function_body
+Rule 3     functions -> functions function
+Rule 4     functions -> empty
+Rule 5     function -> type IDENTIFIER LPAREN parameters RPAREN function_body
+Rule 6     parameters -> multiple_parameters
+Rule 7     parameters -> single_parameter
+Rule 8     parameters -> empty
+Rule 9     multiple_parameters -> multiple_parameters COMMA single_parameter
+Rule 10    multiple_parameters -> single_parameter
+Rule 11    single_parameter -> type IDENTIFIER
+Rule 12    expression -> expression PLUS expression
+Rule 13    expression -> expression MINUS expression
+Rule 14    expression -> expression TIMES expression
+Rule 15    expression -> expression DIVIDE expression
+Rule 16    expression -> LPAREN expression RPAREN
+Rule 17    expression -> NUMBER
+Rule 18    statement -> SEMICOLON
+Rule 19    statement -> block
+Rule 20    statement -> assignment
+Rule 21    statement -> if
+Rule 22    statement -> while
+Rule 23    empty -> <empty>
+
+Terminals, with rules where they appear
+
+AND                  : 
+ASSIGN               : 
+BOOL                 : 
+BOOLEAN              : 
+CHAR                 : 
+COLON                : 
+COMMA                : 9
+COMMENT              : 
+DIVIDE               : 15
+DOT                  : 
+ELSE                 : 
+EQ                   : 
+EXPONENT             : 
+FLOAT                : 
+FOR                  : 
+FUNCTION             : 
+GT                   : 
+GTE                  : 
+IDENTIFIER           : 5 11
+IF                   : 
+INT                  : 
+LBRACE               : 
+LBRACKET             : 
+LPAREN               : 5 16
+LT                   : 
+LTE                  : 
+MAIN                 : 
+MINUS                : 13
+MOD                  : 
+NEQ                  : 
+NEWLINE              : 
+NOT                  : 
+NUMBER               : 17
+OR                   : 
+PLUS                 : 12
+RBRACE               : 
+RBRACKET             : 
+RETURN               : 
+RPAREN               : 5 16
+SEMICOLON            : 18
+STRING_LITERAL       : 
+TIMES                : 14
+WHILE                : 
+error                : 
+
+Nonterminals, with rules where they appear
+
+INT_MAIN             : 1 2
+assignment           : 20
+block                : 19
+empty                : 4 8
+expression           : 12 12 13 13 14 14 15 15 16
+function             : 3
+function_body        : 1 2 5
+functions            : 1 3
+if                   : 21
+multiple_parameters  : 6 9
+parameters           : 5
+program              : 0
+single_parameter     : 7 9 10
+statement            : 
+type                 : 5 11
+while                : 22
+
